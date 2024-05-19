@@ -1,0 +1,100 @@
+version: '3.8'
+
+services:
+  web1:
+    build: ./src
+    command: uvicorn app.LSTM_api:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    volumes:
+      - ./src/:/app/
+    ports:
+      - "8101:8000"
+    environment:
+      - DATABASE_URL=postgresql://MNIST_fastapi:MNIST_fastapi@db/MNIST_fastapi_dev
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+
+  web2:
+    build: ./src
+    command: uvicorn app.LSTM_api:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    volumes:
+      - ./src/:/app/
+    ports:
+      - "8102:8000"
+    environment:
+      - DATABASE_URL=postgresql://MNIST_fastapi:MNIST_fastapi@db/MNIST_fastapi_dev
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+
+  web3:
+    build: ./src
+    command: uvicorn app.LSTM_api:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    volumes:
+      - ./src/:/app/
+    ports:
+      - "8103:8000"
+    environment:
+      - DATABASE_URL=postgresql://MNIST_fastapi:MNIST_fastapi@db/MNIST_fastapi_dev
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+
+  db:
+    image: postgres:13.1-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=MNIST_fastapi
+      - POSTGRES_PASSWORD=MNIST_fastapi
+      - POSTGRES_DB=MNIST_fastapi_dev
+
+    ports:
+      - "5432:5432"
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus_data/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 4000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+volumes:
+  prometheus_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./prometheus_data
+  grafana_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./grafana_data
+  postgres_data:
+
+networks:
+  default: 
+    name: MNIST_fastapi

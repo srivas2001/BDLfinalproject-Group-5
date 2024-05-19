@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/798755684927768057
+creation_time: 1716079225132
+experiment_id: '798755684927768057'
+last_update_time: 1716079225132
+lifecycle_stage: active
+name: With autologging LSTM_BDL3

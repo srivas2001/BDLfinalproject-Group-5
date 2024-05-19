@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/526601076832318338
+creation_time: 1716076901161
+experiment_id: '526601076832318338'
+last_update_time: 1716076901161
+lifecycle_stage: active
+name: With autologging LSTM2

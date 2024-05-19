@@ -1,0 +1,12 @@
+mlflow==2.12.1
+astunparse==1.6.3
+cloudpickle==2.2.1
+dill==0.3.1.1
+numpy==1.24.4
+optree==0.11.0
+packaging==23.2
+pandas==2.2.1
+pydot==1.4.2
+pyyaml==6.0.1
+torch==2.2.1
+tqdm==4.66.2

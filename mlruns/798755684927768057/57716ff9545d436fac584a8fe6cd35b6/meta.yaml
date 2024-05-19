@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/798755684927768057/57716ff9545d436fac584a8fe6cd35b6/artifacts
+end_time: 1716079238783
+entry_point_name: ''
+experiment_id: '798755684927768057'
+lifecycle_stage: active
+run_id: 57716ff9545d436fac584a8fe6cd35b6
+run_name: Model 2
+run_uuid: 57716ff9545d436fac584a8fe6cd35b6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716079234122
+status: 3
+tags: []
+user_id: sriva
