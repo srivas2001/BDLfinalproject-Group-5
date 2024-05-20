@@ -78,7 +78,7 @@ async def predict_temp(request: Request, text_input: str = Query(...)):
     # Load the model if not already loaded
     #model = LSTM(input_size, hidden_size, num_layers, output_size)
     #model=nn.LSTM(input_size, hidden_size, num_layers, batch_first=True).to(device)
-    model_path = os.getenv("MODEL_PATH", "/app/model2.pth")
+    model_path = os.getenv("MODEL_PATH", "/app/model6ml.pth")
     model = load_model(model_path)
 
     # Split the text input by comma and convert to floats

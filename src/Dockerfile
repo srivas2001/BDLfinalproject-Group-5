@@ -14,7 +14,7 @@ RUN apt-get update && \
 
 # Copy and install Python dependencies
 COPY requirements.txt /usr/src/app/
-COPY model2.pth /app/
+COPY models/model6ml.pth /app/
 RUN pip install --upgrade pip setuptools wheel && \
     pip install --no-cache-dir -r requirements.txt && \
     rm -rf /root/.cache/pip
